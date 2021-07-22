@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        .abc{
+            border-color:aqua;
+        }
+
+    </style>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="create">Create Customer</a>
+<h1>Customer</h1>
+
+<form th:action="@{/searchName/}" method="post" >
+    <select name="province" >
+        <option value="Hà Nội">Hà Nội</option>
+        <option value="Sài Gòn">Sài Gòn</option>
+        <option value="Nam Định">Nam Định</option>
+        <option value="Đà Nẵng">Đà Nẵng</option>
+    </select>
+    <input type="submit" value="Search">
+</form>
+
+<table class="abc" border="1">
+    <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td> Province</td>
+        <td> Edit</td>
+        <td>Delete</td>
+    </tr>
+    <th:block th:each="customer : ${customers}">
+        <tr>
+            <td th:text="${customer.firstName}"></td>
+            <td th:text="${customer.lastName}"></td>
+            <td th:text="${customer.province}"></td>
+            <td ><a th:href="@{/edit/__${customer.id}__}">Edit</a></td>
+            <td><a th:href="@{/deleter/__${customer.id}__}">Delete</a></td>
+        </tr>
+    </th:block>
+
+</table>
+</body>
+</html>

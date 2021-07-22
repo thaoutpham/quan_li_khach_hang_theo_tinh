@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Create Customer</h1>
+<a href="/customer">Customer List</a>
+<form action="create" method="post" th:object="${customer}">
+<table>
+  <tr>
+    <td>First Name:</td>
+    <td><input type="text" th:field="*{firstName}"/></td>
+  </tr>
+  <tr>
+    <td>Last Name</td>
+    <td><input type="text" th:field="*{lastName}"></td>
+  </tr>
+  <tr>
+    <td>Province</td>
+    <td>
+      <select th:field="*{province}" >
+        <option value="Hà Nội">Hà Nội</option>
+        <option value="Sài Gòn">Sài Gòn</option>
+        <option value="Nam Định">Nam Định</option>
+        <option value="Đà Nẵng">Đà Nẵng</option>
+      </select>
+    </td>
+  </tr>
+  <td><input type="submit"></td>
+</table>
+</form>
+</body>
+</html>
